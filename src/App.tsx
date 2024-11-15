@@ -1,13 +1,25 @@
-import { Button as MyButton } from "./components/ui/button";
-import { Button, HStack } from "@chakra-ui/react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import CoursePage from "./pages/CoursePage";
+import QuestionAndAnswer from "./pages/QuestionAndAnswerPage";
+import AnswerListPage from "./pages/AnswerListPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <CoursePage />,
+  },
+  {
+    path: "/question-and-answer",
+    element: <QuestionAndAnswer />,
+  },
+  {
+    path: "/answer-list",
+    element: <AnswerListPage />,
+  },
+]);
 
 function App() {
-  return (
-    <HStack>
-      <MyButton>Click me</MyButton>
-      <Button>Click me</Button>
-    </HStack>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
